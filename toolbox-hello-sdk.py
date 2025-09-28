@@ -14,8 +14,6 @@ toolbox = ToolboxClient(token)
 tool = toolbox.tool(tool_name)
 
 # Run and wait for the result
-result = tool({
-    "name": name
-})
+result = tool({"name": name})
 
 print(result.value)

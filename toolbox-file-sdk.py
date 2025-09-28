@@ -14,9 +14,7 @@ toolbox = ToolboxClient(token)
 tool = toolbox.tool(tool_name)
 
 # Run and wait for the result
-result = tool({
-    "zip_with_kmls": toolbox.upload_file(input_data)
-})
+result = tool({"zip_with_kmls": toolbox.upload_file(input_data)})
 
 # Download all results into the current directory
 toolbox.download_results(result, ".")
