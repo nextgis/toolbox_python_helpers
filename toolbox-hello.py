@@ -14,7 +14,7 @@ headers = {"Authorization": "Token %s" % token}
 json_request = {"operation": operation, "inputs": {}}
 json_request["inputs"]["name"] = name
 json_request["inputs"]["sleep"] = ""  # empty string if no sleeping
-url = "https://toolbox.nextgis.com/api/json/execute/"
+url = "https://toolbox.nextgis.com/api/tasks/"
 
 # Run tool
 response = requests.post(url, json=json_request, headers=headers)
@@ -23,7 +23,7 @@ print(response.text)  # returns task_id if all is good
 # Wait for the result
 task_id = response.json()["task_id"]
 task_state = "UNKNOWN"
-url = "https://toolbox.nextgis.com/api/json/status/{task_id}/".format(task_id=task_id)
+url = f"https://toolbox.nextgis.com/api/tasks/{task_id}"
 while task_state in ["UNKNOWN", "ACCEPTED", "STARTED"]:
     time.sleep(1)
     sys.stdout.write(".")
