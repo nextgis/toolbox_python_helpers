@@ -7,15 +7,13 @@ from toolbox_sdk import ToolboxClient
 ##############SET THESE#######################
 token = "YOUR API TOKEN"
 tool_name = "hello"
-name = "John" #5 symbols max here
+name = "John"
 ##############################################
 
 toolbox = ToolboxClient(token)
 tool = toolbox.tool(tool_name)
 
 # Run and wait for the result
-result = tool({
-    "name": name
-})
+result = tool({"name": name})
 
 print(result.value)

@@ -5,13 +5,13 @@ import time
 import sys
 
 ##############SET THESE#######################
-token = "YOUR-API-TOKEN-HERE"
-operation = "hello"
-name = "John"  # 5 symbols max here
+token = "YOUR API TOKEN"
+tool_name = "hello"
+name = "John"
 ##############################################
 
 headers = {"Authorization": "Token %s" % token}
-json_request = {"operation": operation, "inputs": {}}
+json_request = {"operation": tool_name, "inputs": {}}
 json_request["inputs"]["name"] = name
 json_request["inputs"]["sleep"] = ""  # empty string if no sleeping
 url = "https://toolbox.nextgis.com/api/tasks/"
