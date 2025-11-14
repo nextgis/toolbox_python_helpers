@@ -1,4 +1,5 @@
-# Simplest Toolbox API run without using SDK for https://toolbox.nextgis.com/t/hello
+# Simplest Toolbox tool run without using SDK
+# https://toolbox.nextgis.com/t/hello
 
 import requests
 import time
@@ -11,7 +12,7 @@ name = "John"
 ##############################################
 
 headers = {"Authorization": "Token %s" % token}
-json_request = {"operation": tool_name, "inputs": {}}
+json_request = {"tool": tool_name, "inputs": {}}
 json_request["inputs"]["name"] = name
 json_request["inputs"]["sleep"] = ""  # empty string if no sleeping
 url = "https://toolbox.nextgis.com/api/tasks/"
