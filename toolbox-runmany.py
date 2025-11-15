@@ -10,7 +10,7 @@ import time
 token = "YOUR API TOKEN"
 input_folder = "c:\\Work\\test\\"
 kmlformat = "kml"
-operation = "kml2geodata"
+tool_name = "kml2geodata"
 ##############################################
 
 headers = {"Authorization": "Token %s" % token}
@@ -23,10 +23,10 @@ for f in input_files:
     files = {}
     file = open(f, "rb")
     response = requests.post(url, data=file, headers=headers)
-    files["kmlfile"] = response.text
+    files["kmlfile"] = response.json()
 
     # Create request
-    json_request = {"operation": operation, "inputs": {}}
+    json_request = {"tool": tool_name, "inputs": {}}
     json_request["inputs"]["ngdriveid"] = ""
     json_request["inputs"]["fields"] = "test"
     json_request["inputs"]["is_checking_files_presence"] = False  # or True

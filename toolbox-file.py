@@ -14,8 +14,8 @@ filename = "sampledata.zip"
 url = "https://toolbox.nextgis.com/api/upload/?format=json&filename=" + filename
 files = {}
 file = open(filename, "rb")
-response = requests.post(url, data=file, headers=headers, verify=False)
-files["zip_with_kmls"] = "storage/" + response.json()["local"]["uuid"]
+response = requests.post(url, data=file, headers=headers)
+files["zip_with_kmls"] = response.json()
 
 json_request = {"tool": tool, "inputs": {}}
 json_request["inputs"]["zip_with_kmls"] = files["zip_with_kmls"]
